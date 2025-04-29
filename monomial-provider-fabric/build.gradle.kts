@@ -16,6 +16,14 @@ fabricApi {
     }
 }
 
+repositories {
+    mavenCentral()
+
+    maven {
+        url = uri("https://libraries.minecraft.net")
+    }
+}
+
 dependencies {
     val minecraftVersion = project.extra["minecraft_version"] as String
     val loaderVersion = project.extra["loader_version"] as String
@@ -25,6 +33,8 @@ dependencies {
     mappings(loom.officialMojangMappings())
     modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
+
+    implementation(project(":monomial-api"))
 }
 
 tasks.processResources {

@@ -12,7 +12,9 @@
 
   "environment": "server",
   "entrypoints": {
-    "main": ["dev.akarah.mpf.Main"]
+    "main": [
+      "dev.akarah.monomial.fabric.Main"
+    ]
   },
 
   "mixins": [

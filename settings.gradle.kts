@@ -1,6 +1,10 @@
 rootProject.name = "monomial"
 
-include("monomial-api", "monomial-provider-fabric")
+include(
+    "monomial-api",
+    "monomial-provider-fabric",
+    "example-plugin"
+)
 
 pluginManagement {
     repositories {

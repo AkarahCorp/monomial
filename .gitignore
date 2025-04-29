@@ -10,3 +10,7 @@
 /monomial-provider-fabric/.gradle
 /monomial-provider-fabric/build
 /monomial-provider-fabric/run
+
+/example-plugin/build
+/example-plugin/.gradle
+/example-plugin/.idea
