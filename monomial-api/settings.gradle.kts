@@ -1,0 +1,2 @@
+rootProject.name = "monomial-api"
+

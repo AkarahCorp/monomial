@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "monomial-provider-fabric",
+  "version": "${version}",
+
+  "name": "monomial-provider-fabric",
+  "description": "Provider for the Monomial API for Fabric.",
+  "authors": [],
+  "contact": {},
+
+  "license": "MIT",
+
+  "environment": "server",
+  "entrypoints": {
+    "main": ["dev.akarah.mpf.Main"]
+  },
+
+  "mixins": [
+    "monomial-provider-fabric.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

@@ -1,0 +1,9 @@
+/.idea
+
+/monomial-api/.idea
+/monomial-api/.gradle
+
+/monomial-provider-fabric/.idea
+/monomial-provider-fabric/.gradle
+/monomial-provider-fabric/build
+/monomial-provider-fabric/run
