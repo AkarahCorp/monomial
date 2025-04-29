@@ -1,3 +1,7 @@
+rootProject.name = "monomial"
+
+include("monomial-api", "monomial-provider-fabric")
+
 pluginManagement {
     repositories {
         maven {

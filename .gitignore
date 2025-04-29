@@ -1,7 +1,10 @@
 /.idea
+/.gradle
+/build
 
 /monomial-api/.idea
 /monomial-api/.gradle
+/monomial-api/build
 
 /monomial-provider-fabric/.idea
 /monomial-provider-fabric/.gradle
