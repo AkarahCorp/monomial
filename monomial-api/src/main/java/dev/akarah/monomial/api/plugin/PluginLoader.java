@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.jar.JarFile;
 
@@ -20,6 +21,10 @@ public class PluginLoader {
 
     public static PluginLoader getInstance() {
         return LOADER;
+    }
+
+    public void loadPlugins() {
+        loadPluginsFrom(Paths.get("./plugins/"));
     }
 
     public void loadPluginsFrom(Path directory) {
@@ -35,6 +40,12 @@ public class PluginLoader {
                 }
             });
         } catch (IOException e) {
+            if(!Files.exists(directory)) {
+                try {
+                    Files.createDirectories(directory);
+                } catch (IOException ignored) {}
+                return;
+            }
             throw new RuntimeException(e);
         }
     }
@@ -67,5 +78,12 @@ public class PluginLoader {
                 }
             }
         }
+    }
+
+    public void unloadPlugins() {
+        for(var entry : this.plugins.entrySet()) {
+            entry.getValue().shutdown();
+        }
+        this.plugins.clear();
     }
 }

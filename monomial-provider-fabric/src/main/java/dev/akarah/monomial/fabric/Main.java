@@ -9,6 +9,6 @@ public class Main implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        PluginLoader.getInstance().loadPluginsFrom(Paths.get("./plugins/"));
+        PluginLoader.getInstance().loadPlugins();
     }
 }

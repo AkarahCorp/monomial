@@ -1,11 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "dev.akarah.mpf.mixin",
+  "package": "dev.akarah.monomial.fabric.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-  ],
-  "client": [
+    "ReloadCommandMixin"
   ],
   "injectors": {
     "defaultRequire": 1
