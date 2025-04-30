@@ -1,10 +1,13 @@
 package dev.akarah.monomial.api.component;
 
+import com.google.common.collect.Sets;
+import it.unimi.dsi.fastutil.booleans.BooleanArraySet;
 import it.unimi.dsi.fastutil.objects.*;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public interface DataComponentMap {
     <T> Optional<T> get(DataComponentType<T> componentType);
@@ -21,6 +24,36 @@ public interface DataComponentMap {
             return Set.of();
         }
     };
+
+    default DataComponentMap composite(DataComponentMap addendum) {
+        var base = this;
+        return new DataComponentMap() {
+            @Override
+            public <T> Optional<T> get(DataComponentType<T> componentType) {
+                return base.get(componentType).or(() -> addendum.get(componentType));
+            }
+
+            @Override
+            public Set<DataComponentType<?>> keySet() {
+                return Sets.union(base.keySet(), addendum.keySet());
+            }
+        };
+    }
+
+    default DataComponentMap filter(Predicate<DataComponentType<?>> predicate) {
+        var map = this;
+        return new DataComponentMap() {
+            @Override
+            public <T> Optional<T> get(DataComponentType<T> componentType) {
+                return map.get(componentType).filter(x -> predicate.test(componentType));
+            }
+
+            @Override
+            public Set<DataComponentType<?>> keySet() {
+                return Sets.filter(map.keySet(), predicate::test);
+            }
+        };
+    }
 
     static Builder builder() {
         return new Builder();
