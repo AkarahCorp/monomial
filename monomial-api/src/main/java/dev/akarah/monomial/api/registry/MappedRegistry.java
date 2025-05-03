@@ -1,7 +1,6 @@
 package dev.akarah.monomial.api.registry;
 
 import dev.akarah.monomial.api.value.ResourceLocation;
-import dev.akarah.monomial.api.value.WeakResourceLocation;
 import it.unimi.dsi.fastutil.objects.Reference2ObjectArrayMap;
 
 import java.util.Map;
