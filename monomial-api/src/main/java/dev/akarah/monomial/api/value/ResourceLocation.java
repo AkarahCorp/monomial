@@ -1,5 +1,6 @@
 package dev.akarah.monomial.api.value;
 
+import com.google.common.base.Objects;
 import com.mojang.serialization.Codec;
 
 public class ResourceLocation {
@@ -28,6 +29,11 @@ public class ResourceLocation {
     @Override
     public String toString() {
         return namespace + ":" + path;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(namespace, path);
     }
 
     public String namespace() {
