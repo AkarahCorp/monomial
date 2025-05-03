@@ -1,5 +1,6 @@
 package dev.akarah.monomial.fabric;
 
+import dev.akarah.monomial.api.MonomialAPI;
 import dev.akarah.monomial.api.event.CancelToken;
 import dev.akarah.monomial.api.event.Events;
 import dev.akarah.monomial.api.event.world.PlayerBreakBlockEvent;
@@ -11,6 +12,7 @@ public class Main implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        MonomialAPI.setMinecraftServer(new FabricMinecraftServer());
         PluginLoader.getInstance().loadPlugins();
 
         PlayerBlockBreakEvents.BEFORE.register((level, player, blockPos, blockState, blockEntity) -> {
